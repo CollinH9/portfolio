@@ -13,6 +13,7 @@ website:
         href: https://github.com/CollinH9
       - icon: person
         href: files/CollinHenkel-Resume.pdf
+        target: _blank
 format:
   html:
     theme:
