@@ -10,9 +10,9 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/CollinH9
+      - icon: person
+        href: file:///C:/Users/nillo/OneDrive/Desktop/Resume/CollinHenkel-Resume.pdf
 format:
   html:
     theme:
