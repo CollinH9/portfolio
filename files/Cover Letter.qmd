@@ -1,0 +1,27 @@
+---
+title: "Cover Letter"
+---
+
+**Collin Henkel**  
+Lincoln, NE  
+(402) 506-2175  
+collinh929@gmail.com  
+
+---
+
+**Dear Hiring Committee,**
+
+I am applying for the Data Analyst and Research Intern position with the Office of MaineCare Services. I am currently a senior at the University of Nebraska–Lincoln, majoring in Data Science and Mathematics, and I plan to graduate in May 2026.
+
+Last summer, I worked as a Pricing Intern at National Indemnity. A large part of my work was checking whether rates coming out of a new pricing system matched what older models produced. When they did not, I had to track down where the difference came from and report it clearly so someone else could fix it. Most days were spent in Excel, looking closely at numbers that were very similar but not quite the same.
+
+I also work for UNL Course Evaluation Services. Each semester, I help manage data for over a thousand courses. The work is repetitive, and mistakes are easy to make if you rush. I spend a lot of time checking entries, fixing inconsistencies, and following up when something looks off. That job has taught me to slow down and trust the process instead of assuming the data is right.
+
+Through my coursework, I have worked with Python, R, SQL, and Excel for cleaning data, running analyses, and checking results. I am not interested in flashy outputs as much as I am in making sure the numbers actually make sense before they are used for decisions.
+
+This position stood out to me because the work is specific and practical. I would like the opportunity to contribute careful, accurate work to a program that affects real policy outcomes.
+
+Thank you for considering my application.
+
+**Sincerely,**  
+Collin Henkel
