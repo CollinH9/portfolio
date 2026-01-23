@@ -10,7 +10,7 @@ website:
     right:
       - about.qmd
       - text: "Cover Letter"
-        href: files/cover-letter.qmd
+        href: Cover Letter.qmd
       - icon: github
         href: https://github.com/CollinH9
       - icon: person
