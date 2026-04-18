@@ -1,6 +1,6 @@
 # Projects
 
-## Health Risk Modeling Analysis *In Progress*
+## Health Risk Modeling Analysis
 
 **Tools:** Python, pandas, scikit-learn  
 
@@ -9,10 +9,11 @@
 - Visualized trends across geographic regions  
 
 [Download Preliminary Analysis (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
+*In Progress*
 
 ---
 
-## Business Data Analysis Report *In Progress*
+## Business Data Analysis Report
 
 **Tools:** Python, Quarto  
 
@@ -21,6 +22,7 @@
 - Generated actionable recommendations based on data trends  
 
 [View Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
+*In Progress*
 
 ## Deep Learning Projects
 
