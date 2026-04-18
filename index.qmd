@@ -1,13 +1,30 @@
----
-title: "portfolio"
-listing:
-  contents: posts
-  feed: true
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
----
+# Collin Henkel
+
+**Data Science • Mathematics • Machine Learning**
+
+I am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.
+
+This portfolio highlights selected projects involving statistical modeling, data validation, and applied machine learning.
+
+------------------------------------------------------------------------
+
+## Projects
+
+-   [Health Risk Modeling Analysis](projects.qmd#health-risk-modeling-analysis)
+-   [Business Data Analysis Report](projects.qmd#business-data-analysis-report)
+
+[View all projects →](projects.qmd)
+
+------------------------------------------------------------------------
+
+## Skills
+
+-   **Programming:** Python (pandas, NumPy, scikit-learn), R, SQL\
+-   **Tools:** Tableau, Excel, Jupyter, Git\
+-   **Methods:** Regression, Classification, Statistical Inference, Data Validation
+
+------------------------------------------------------------------------
+
+## Contact
+
+-   Email: collinh929\@gmail.com\

@@ -9,9 +9,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "portfolio",
+    "title": "Collin Henkel",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 19, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 16, 2026\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Data Science • Mathematics • Machine Learning\nI am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.\nThis portfolio highlights selected projects involving statistical modeling, data validation, and applied machine learning.\n\n\n\n\nHealth Risk Modeling Analysis\nBusiness Data Analysis Report\n\nView all projects →\n\n\n\n\n\nProgramming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation\n\n\n\n\n\n\nEmail: collinh929@gmail.com\n\nGitHub: https://github.com/CollinH29"
   },
   {
     "objectID": "about.html",
@@ -26,5 +26,61 @@
     "title": "Post With Code",
     "section": "",
     "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "Health Risk Modeling Analysis\nBusiness Data Analysis Report\n\nView all projects →"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "# Resume\n[Download Resume (PDF)](files/Collin_Henkel_Resume.pdf)"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF)\n\n\n\n\nTools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report\n\n\n\n\n\nTools: TensorFlow, Keras\n\nBuilt sequential neural networks for text classification tasks\n\nPreprocessed text data and evaluated model performance\n\nExplored model architecture and hyperparameter tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow, CNN\n\nImplemented convolutional neural networks for image classification\n\nTrained and evaluated models on real-world digit recognition dataset\n\nImproved performance through architecture tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow\n\nDesigned and trained neural network architectures for image classification\n\nCompared model performance across different architectures\n\nAnalyzed tradeoffs between complexity and accuracy\n\nDownload Report (PDF)"
+  },
+  {
+    "objectID": "projects.html#health-risk-modeling-analysis",
+    "href": "projects.html#health-risk-modeling-analysis",
+    "title": "Projects",
+    "section": "",
+    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF)"
+  },
+  {
+    "objectID": "projects.html#business-data-analysis-report",
+    "href": "projects.html#business-data-analysis-report",
+    "title": "Projects",
+    "section": "",
+    "text": "Tools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "Programming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "Email: collinh929@gmail.com\n\nGitHub: https://github.com/CollinH29"
+  },
+  {
+    "objectID": "projects.html#deep-learning-projects",
+    "href": "projects.html#deep-learning-projects",
+    "title": "Projects",
+    "section": "",
+    "text": "Tools: TensorFlow, Keras\n\nBuilt sequential neural networks for text classification tasks\n\nPreprocessed text data and evaluated model performance\n\nExplored model architecture and hyperparameter tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow, CNN\n\nImplemented convolutional neural networks for image classification\n\nTrained and evaluated models on real-world digit recognition dataset\n\nImproved performance through architecture tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow\n\nDesigned and trained neural network architectures for image classification\n\nCompared model performance across different architectures\n\nAnalyzed tradeoffs between complexity and accuracy\n\nDownload Report (PDF)"
   }
 ]
