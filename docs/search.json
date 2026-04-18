@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "# Resume\n[Download Resume (PDF)](files/CollinHenkel-Resume.pdf)"
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
@@ -11,21 +18,7 @@
     "href": "index.html",
     "title": "Collin Henkel",
     "section": "",
-    "text": "Data Science • Mathematics • Machine Learning\nI am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.\nThis portfolio highlights selected projects involving statistical modeling, data validation, and applied machine learning.\n\n\n\n\nHealth Risk Modeling Analysis\nBusiness Data Analysis Report\n\nView all projects →\n\n\n\n\n\nProgramming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation\n\n\n\n\n\n\nEmail: collinh929@gmail.com\n\nGitHub: https://github.com/CollinH29"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "Data Science • Mathematics • Machine Learning\nI am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.\nThis portfolio highlights selected projects involving statistical modeling, data validation, and applied machine learning.\n\n\n\n\nHealth Risk Modeling Analysis\nBusiness Data Analysis Report\n\nView all projects →\n\n\n\n\n\nProgramming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation\n\n\n\n\n\n\nEmail: collinh929@gmail.com"
   },
   {
     "objectID": "index.html#projects",
@@ -35,11 +28,32 @@
     "text": "Health Risk Modeling Analysis\nBusiness Data Analysis Report\n\nView all projects →"
   },
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
     "title": "Collin Henkel",
     "section": "",
-    "text": "# Resume\n[Download Resume (PDF)](files/Collin_Henkel_Resume.pdf)"
+    "text": "Programming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Collin Henkel",
+    "section": "",
+    "text": "Email: collinh929@gmail.com"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About\nI am a senior at the University of Nebraska–Lincoln studying Data Science and Mathematics. I am interested in data analysis, machine learning, and applying data-driven methods to real-world problems.\nI have experience working with SQL, Python, and large structured datasets, including validating and analyzing production data systems.\nI am currently seeking data analyst and data science roles."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "projects.html",
@@ -61,20 +75,6 @@
     "title": "Projects",
     "section": "",
     "text": "Tools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report"
-  },
-  {
-    "objectID": "index.html#skills",
-    "href": "index.html#skills",
-    "title": "Collin Henkel",
-    "section": "",
-    "text": "Programming: Python (pandas, NumPy, scikit-learn), R, SQL\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Data Validation"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Collin Henkel",
-    "section": "",
-    "text": "Email: collinh929@gmail.com\n\nGitHub: https://github.com/CollinH29"
   },
   {
     "objectID": "projects.html#deep-learning-projects",
