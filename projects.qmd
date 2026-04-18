@@ -1,6 +1,6 @@
 # Projects
 
-## Health Risk Modeling Analysis
+## Health Risk Modeling Analysis *In Progress*
 
 **Tools:** Python, pandas, scikit-learn  
 
@@ -12,7 +12,7 @@
 
 ---
 
-## Business Data Analysis Report
+## Business Data Analysis Report *In Progress*
 
 **Tools:** Python, Quarto  
 
