@@ -60,7 +60,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Built regression models to quantify relationships between socioeconomic factors, access, and health outcomes at the census tract level.\nTools: Python, pandas, scikit-learn, geopandas\nData: ACS, CDC PLACES, OpenStreetMap\nView Report (PDF)\nIn Progress\n\n\nSee technical details\n\n\nBuilt regression models and evaluated performance using R² and RMSE\n\nEngineered features including distance to grocery stores and density metrics\n\nVisualized spatial trends across geographic regions\n\n\n\n\n\n\nDeveloped a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.\nTools: Python, Quarto\nView Project Site\nIn Progress\n\n\n\n\nImplemented and evaluated neural network models across text and image tasks, including sentiment analysis and image classification.\nTools: TensorFlow, Keras\n\n\n\nSentiment Analysis — sequential models for text classification\n\nSVHN Classification — convolutional neural networks for digit recognition\n\nFashion MNIST — fully connected architectures with performance comparison\n\nView Example Report (PDF)\n\n\nSee technical details\n\n\nBuilt and trained neural network models across multiple datasets\n\nPreprocessed text and image data for supervised learning tasks\n\nTuned architectures and hyperparameters to improve model performance"
+    "text": "Built regression models to quantify relationships between socioeconomic factors, access, and health outcomes at the census tract level.\nTools: Python, pandas, scikit-learn, geopandas\nData: ACS, CDC PLACES, OpenStreetMap\nView Report (PDF)\nIn Progress\n\n\nSee technical details\n\n\nBuilt regression models and evaluated performance using R² and RMSE\n\nEngineered features including distance to grocery stores and density metrics\n\nVisualized spatial trends across geographic regions\n\n\n\n\n\n\nDeveloped a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.\nTools: R, Quarto\nView Project Site\nIn Progress\n\n\n\n\nImplemented and evaluated neural network models across text and image tasks, including sentiment analysis and image classification.\nTools: TensorFlow, Keras\n\n\n\nSentiment Analysis — sequential models for text classification\n\nSVHN Classification — convolutional neural networks for digit recognition\n\nFashion MNIST — fully connected architectures with performance comparison\n\nView Example Report (PDF)\n\n\nSee technical details\n\n\nBuilt and trained neural network models across multiple datasets\n\nPreprocessed text and image data for supervised learning tasks\n\nTuned architectures and hyperparameters to improve model performance"
   },
   {
     "objectID": "projects.html#health-risk-modeling-analysis",
@@ -74,7 +74,7 @@
     "href": "projects.html#business-data-analysis-report",
     "title": "Projects",
     "section": "",
-    "text": "Developed a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.\nTools: Python, Quarto\nView Project Site\nIn Progress"
+    "text": "Developed a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.\nTools: R, Quarto\nView Project Site\nIn Progress"
   },
   {
     "objectID": "projects.html#deep-learning-projects",

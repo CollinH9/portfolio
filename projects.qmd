@@ -25,7 +25,7 @@ Built regression models to quantify relationships between socioeconomic factors,
 
 Developed a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.
 
-**Tools:** Python, Quarto  
+**Tools:** R, Quarto  
 
 [View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}  
 *In Progress*
