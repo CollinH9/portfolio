@@ -1,6 +1,6 @@
 # Collin Henkel
 
-**Data Science • Mathematics • Machine Learning**
+###Data Science • Mathematics • Machine Learning###
 
 I am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.
 
