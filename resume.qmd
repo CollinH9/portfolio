@@ -3,4 +3,4 @@
 
 <iframe src="files/CollinHenkel-Resume.pdf" width="100%" height="800px"></iframe>
 
-[Download PDF](files/CollinHenkel-Resume.pdf)
+[Download PDF](files/CollinHenkel-Resume.pdf){target="_blank"}

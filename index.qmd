@@ -10,8 +10,8 @@ This portfolio highlights selected projects involving statistical modeling, data
 
 ## Projects
 
-<li><a href="projects.html#health-risk-modeling-analysis" target="_blank">Health Risk Modeling Analysis</a></li>
-<li><a href="projects.html#business-data-analysis-report" target="_blank">Business Data Analysis Report</a></li>
+-   [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
+-   [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
 
 [View all projects →](projects.qmd)
 
@@ -28,3 +28,5 @@ This portfolio highlights selected projects involving statistical modeling, data
 ## Contact
 
 -   Email: collinh929\@gmail.com\
+-   LinkedIn: https://www.linkedin.com/in/collin-henkel-55aa2533a/
+-   Portfolio: https://collinh9.github.io/portfolio
