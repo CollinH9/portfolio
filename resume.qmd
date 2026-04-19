@@ -1,3 +1,6 @@
 # Resume
 
-[Download Resume (PDF)](files/CollinHenkel-Resume.pdf)
+
+<iframe src="files/CollinHenkel-Resume.pdf" width="100%" height="800px"></iframe>
+
+[Download PDF](files/CollinHenkel-Resume.pdf)

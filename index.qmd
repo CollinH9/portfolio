@@ -10,8 +10,8 @@ This portfolio highlights selected projects involving statistical modeling, data
 
 ## Projects
 
--   [Health Risk Modeling Analysis](projects.qmd#health-risk-modeling-analysis)
--   [Business Data Analysis Report](projects.qmd#business-data-analysis-report)
+<li><a href="projects.html#health-risk-modeling-analysis" target="_blank">Health Risk Modeling Analysis</a></li>
+<li><a href="projects.html#business-data-analysis-report" target="_blank">Business Data Analysis Report</a></li>
 
 [View all projects →](projects.qmd)
 

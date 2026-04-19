@@ -14,6 +14,9 @@ website:
         text: Resume
       - href: about.qmd
         text: About
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/collin-henkel-55aa2533a/
 
 format:
   html:
