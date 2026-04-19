@@ -36,7 +36,7 @@
 -   Preprocessed text data and evaluated model performance\
 -   Explored model architecture and hyperparameter tuning
 
-[Download Report (PDF)](/files/CSCE479879Homework3.pdf){target="_blank"}
+[View Report (PDF)](/files/CSCE479879Homework3.pdf){target="_blank"}
 
 ------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@
 -   Trained and evaluated models on real-world digit recognition dataset\
 -   Improved performance through architecture tuning
 
-[Download Report (PDF)](/files/CSCE479879Homework2.pdf){target="_blank"}
+[View Report (PDF)](/files/CSCE479879Homework2.pdf){target="_blank"}
 
 ------------------------------------------------------------------------
 
@@ -60,4 +60,4 @@
 -   Compared model performance across different architectures\
 -   Analyzed tradeoffs between complexity and accuracy
 
-[Download Report (PDF)](/files/CSCE479879Homework1.pdf){target="_blank"}
+[View Report (PDF)](/files/CSCE479879Homework1.pdf){target="_blank"}
