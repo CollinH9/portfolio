@@ -8,7 +8,7 @@
 -   Performed data cleaning, feature engineering, and model evaluation\
 -   Visualized trends across geographic regions
 
-[Download Preliminary Analysis (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
+[View Preliminary Analysis (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
 
 *In Progress*
 
