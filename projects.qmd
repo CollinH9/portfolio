@@ -26,6 +26,8 @@
 
 *In Progress*
 
+------------------------------------------------------------------------
+
 ## Deep Learning Projects
 
 ### Sentiment Analysis with Sequential Models
