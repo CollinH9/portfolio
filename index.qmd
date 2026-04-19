@@ -19,9 +19,10 @@ This portfolio highlights selected projects involving statistical modeling, data
 
 ## Skills
 
--   **Programming:** Python (pandas, NumPy, scikit-learn), R, SQL\
--   **Tools:** Tableau, Excel, Jupyter, Git\
--   **Methods:** Regression, Classification, Statistical Inference, Data Validation
+- **Languages:** Python, SQL, R  
+- **Libraries:** pandas, NumPy, scikit-learn  
+- **Tools:** Tableau, Excel, Jupyter, Git  
+- **Methods:** Regression, Classification, Statistical Inference
 
 ------------------------------------------------------------------------
 
