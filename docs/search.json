@@ -60,21 +60,21 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF) In Progress\n\n\n\n\nTools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report In Progress\n\n\n\n\n\nTools: TensorFlow, Keras\n\nBuilt sequential neural networks for text classification tasks\n\nPreprocessed text data and evaluated model performance\n\nExplored model architecture and hyperparameter tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow, CNN\n\nImplemented convolutional neural networks for image classification\n\nTrained and evaluated models on real-world digit recognition dataset\n\nImproved performance through architecture tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow\n\nDesigned and trained neural network architectures for image classification\n\nCompared model performance across different architectures\n\nAnalyzed tradeoffs between complexity and accuracy\n\nDownload Report (PDF)"
+    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF)\nIn Progress\n\n\n\n\nTools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report\nIn Progress\n\n\n\n\n\nTools: TensorFlow, Keras\n\nBuilt sequential neural networks for text classification tasks\n\nPreprocessed text data and evaluated model performance\n\nExplored model architecture and hyperparameter tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow, CNN\n\nImplemented convolutional neural networks for image classification\n\nTrained and evaluated models on real-world digit recognition dataset\n\nImproved performance through architecture tuning\n\nDownload Report (PDF)\n\n\n\n\nTools: TensorFlow\n\nDesigned and trained neural network architectures for image classification\n\nCompared model performance across different architectures\n\nAnalyzed tradeoffs between complexity and accuracy\n\nDownload Report (PDF)"
   },
   {
     "objectID": "projects.html#health-risk-modeling-analysis",
     "href": "projects.html#health-risk-modeling-analysis",
     "title": "Projects",
     "section": "",
-    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF) In Progress"
+    "text": "Tools: Python, pandas, scikit-learn\n\nBuilt regression models to analyze relationships between socioeconomic factors and health outcomes\n\nPerformed data cleaning, feature engineering, and model evaluation\n\nVisualized trends across geographic regions\n\nDownload Preliminary Analysis (PDF)\nIn Progress"
   },
   {
     "objectID": "projects.html#business-data-analysis-report",
     "href": "projects.html#business-data-analysis-report",
     "title": "Projects",
     "section": "",
-    "text": "Tools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report In Progress"
+    "text": "Tools: Python, Quarto\n\nDeveloped a structured business analysis report using real-world data\n\nCombined data processing, visualization, and written insights\n\nGenerated actionable recommendations based on data trends\n\nView Report\nIn Progress"
   },
   {
     "objectID": "projects.html#deep-learning-projects",

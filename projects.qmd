@@ -8,7 +8,9 @@
 -   Performed data cleaning, feature engineering, and model evaluation\
 -   Visualized trends across geographic regions
 
-[Download Preliminary Analysis (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"} *In Progress*
+[Download Preliminary Analysis (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
+
+*In Progress*
 
 ------------------------------------------------------------------------
 
@@ -20,7 +22,9 @@
 -   Combined data processing, visualization, and written insights\
 -   Generated actionable recommendations based on data trends
 
-[View Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} *In Progress*
+[View Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
+
+*In Progress*
 
 ## Deep Learning Projects
 
