@@ -1,1 +1,12 @@
-/* css styles */
+.anchorjs-link {
+  display: none !important;
+}
+
+a {
+  color: #2a6fdb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
