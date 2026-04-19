@@ -1,7 +1,7 @@
 # About
 
-I am a senior at the University of Nebraska–Lincoln studying Data Science and Mathematics. I am interested in data analysis, machine learning, and applying data-driven methods to real-world problems.
+I am a senior at the University of Nebraska–Lincoln studying Data Science and Mathematics, with experience in data analysis, machine learning, and working with structured datasets.
 
-I have experience working with SQL, Python, and large structured datasets, including validating and analyzing production data systems.
+I have worked with SQL and Python to validate and analyze production data systems, and have built regression and machine learning models on real-world datasets, including health and socioeconomic data.
 
-I am currently seeking data analyst and data science roles.
+I am currently seeking data analyst and data science roles where I can apply data-driven methods to practical problems.
