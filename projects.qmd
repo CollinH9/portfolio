@@ -28,7 +28,6 @@ Developed a structured business analysis combining data processing, visualizatio
 **Tools:** R, Quarto  
 
 [View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}  
-*In Progress*
 
 ---
 
