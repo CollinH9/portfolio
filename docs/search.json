@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Collin Henkel",
     "section": "",
-    "text": "I recently graduated from the University of Nebraska–Lincoln with a B.S. in Data Science and Mathematics. My background spans data validation and analysis, statistical modeling, and machine learning with experience applying these methods to real-world problems in insurance, public health, and business contexts.\nI’m drawn to work where careful methodology and practical impact go together.\n\n\n\n\n\nHealth Risk Modeling Analysis — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts\nHealth Risk Modeling — Extended Analysis — self-directed follow-up adding SNAP participation and age variables; SNAP rate emerged as the strongest predictor of obesity\nBusiness Data Analysis Report — structured analysis combining data processing, visualization, and recommendations in R\nDeep Learning Projects — sentiment analysis and image classification using TensorFlow and scikit-learn\n\nView all projects →\n\n\n\n\n\nLanguages: Python, SQL, R\n\nLibraries: pandas, NumPy, scikit-learn, geopandas, TensorFlow\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Feature Engineering\n\n\n\n\n\n\nEmail: collinh929@gmail.com\nLinkedIn: View Profile\nPortfolio: collinh9.github.io/portfolio"
+    "text": "I recently graduated from the University of Nebraska–Lincoln with a B.S. in Data Science and Mathematics. My background spans data validation and analysis, statistical modeling, and machine learning with experience applying these methods to real-world problems in insurance, public health, and business contexts.\nI’m drawn to work where careful methodology and practical impact go together.\n\n\n\n\n\nHealth Risk Modeling Analysis — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts\nHealth Risk Modeling — Extended Analysis — self-directed follow-up adding SNAP participation and age variables; SNAP rate emerged as the strongest predictor of obesity\nBusiness Data Analysis Report — structured analysis combining data processing, visualization, and recommendations in R\nDeep Learning Projects — sentiment analysis and image classification using TensorFlow and scikit-learn\n\nView all projects →\n\n\n\n\n\nLanguages: Python, SQL, R\n\nLibraries: pandas, NumPy, scikit-learn, geopandas, TensorFlow\n\nTools: Tableau, Excel, Jupyter, Git\n\nMethods: Regression, Classification, Statistical Inference, Feature Engineering\n\n\n\n\n\n\nEmail: collinh929@gmail.com\nLinkedIn: View Profile\nGitHub: View Repositories"
   },
   {
     "objectID": "index.html#projects",
@@ -32,7 +32,7 @@
     "href": "index.html#contact",
     "title": "Collin Henkel",
     "section": "",
-    "text": "Email: collinh929@gmail.com\nLinkedIn: View Profile\nPortfolio: collinh9.github.io/portfolio"
+    "text": "Email: collinh929@gmail.com\nLinkedIn: View Profile\nGitHub: View Repositories"
   },
   {
     "objectID": "about.html",
@@ -46,7 +46,7 @@
     "href": "files/analysis.html",
     "title": "Health Outcomes and Social Determinants in Lancaster County, Nebraska",
     "section": "",
-    "text": "This analysis extends a class project from Math in the City (Spring 2026), which found that educational attainment was a stronger predictor of obesity in Lancaster County than physical proximity to grocery stores. That project used a limited feature set. Here I add SNAP participation rates and age distribution variables from the ACS to test whether food insecurity changes the picture. It does.\nData sources: - CDC PLACES 2025 — crude prevalence rates by census tract - ACS 5-year 2023 — socioeconomic and demographic variables - OpenStreetMap (via osmnx) — food access infrastructure - TIGER/Line 2020 — census tract shapefiles\nTo reproduce the dataset: run python build_dataset.py (requires CENSUS_API_KEY env var and the base CSV in data/)."
+    "text": "This analysis extends a class project from Math in the City (Spring 2026), which found that educational attainment was a stronger predictor of obesity in Lancaster County than physical proximity to grocery stores. That project used a limited feature set. Here I add SNAP participation rates and age distribution variables from the ACS to test whether food insecurity changes the picture. It does.\nData sources:\nTo reproduce the dataset: run python build_dataset.py (requires CENSUS_API_KEY env var and the base CSV in data/)."
   },
   {
     "objectID": "files/analysis.html#setup",

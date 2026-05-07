@@ -193,7 +193,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This analysis extends a class project from Math in the City (Spring 2026), which found that educational attainment was a stronger predictor of obesity in Lancaster County than physical proximity to grocery stores. That project used a limited feature set. Here I add SNAP participation rates and age distribution variables from the ACS to test whether food insecurity changes the picture. It does.</p>
-<p><strong>Data sources:</strong> - CDC PLACES 2025 — crude prevalence rates by census tract - ACS 5-year 2023 — socioeconomic and demographic variables - OpenStreetMap (via osmnx) — food access infrastructure - TIGER/Line 2020 — census tract shapefiles</p>
+<p><strong>Data sources:</strong></p>
+<ul>
+<li>CDC PLACES 2025 — crude prevalence rates by census tract</li>
+<li>ACS 5-year 2023 — socioeconomic and demographic variables</li>
+<li>OpenStreetMap (via osmnx) — food access infrastructure</li>
+<li>TIGER/Line 2020 — census tract shapefiles</li>
+</ul>
 <p><strong>To reproduce the dataset:</strong> run <code>python build_dataset.py</code> (requires <code>CENSUS_API_KEY</code> env var and the base CSV in <code>data/</code>).</p>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
