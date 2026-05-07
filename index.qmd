@@ -10,10 +10,10 @@ I'm drawn to work where careful methodology and practical impact go together.
 
 ## Projects
 
--   [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"} — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
--   [Health Risk Modeling — Extended Analysis](files/analysis.ipynb){target="_blank"} — self-directed follow-up adding SNAP participation and age variables; SNAP rate emerged as the strongest predictor of obesity
--   [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} — structured analysis combining data processing, visualization, and recommendations in R
--   [Deep Learning Projects](files/CSCE479879Homework3.pdf){target="_blank"} — sentiment analysis and image classification using TensorFlow and scikit-learn
+- [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"} — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
+- [Health Risk Modeling — Extended Analysis](files/analysis.ipynb){target="_blank"} — self-directed follow-up adding SNAP participation and age variables; SNAP rate emerged as the strongest predictor of obesity
+- [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} — structured analysis combining data processing, visualization, and recommendations in R
+- [Deep Learning Projects](files/CSCE479879Homework3.pdf){target="_blank"} — sentiment analysis and image classification using TensorFlow and scikit-learn
 
 [View all projects →](projects.qmd)
 
@@ -21,15 +21,15 @@ I'm drawn to work where careful methodology and practical impact go together.
 
 ## Skills
 
-- **Languages:** Python, SQL, R  
-- **Libraries:** pandas, NumPy, scikit-learn, geopandas, TensorFlow  
-- **Tools:** Tableau, Excel, Jupyter, Git  
+- **Languages:** Python, SQL, R\
+- **Libraries:** pandas, NumPy, scikit-learn, geopandas, TensorFlow\
+- **Tools:** Tableau, Excel, Jupyter, Git\
 - **Methods:** Regression, Classification, Statistical Inference, Feature Engineering
 
 ------------------------------------------------------------------------
 
 ## Contact
 
--   Email: [collinh929@gmail.com](mailto:collinh929@gmail.com)
--   LinkedIn: [View Profile](https://www.linkedin.com/in/collin-henkel-55aa2533a/){target="_blank"}
--   Portfolio: [collinh9.github.io/portfolio](https://collinh9.github.io/portfolio){target="_blank"}
+- Email: [collinh929\@gmail.com](mailto:collinh929@gmail.com)
+- LinkedIn: [View Profile](https://www.linkedin.com/in/collin-henkel-55aa2533a/){target="_blank"}
+- GitHub: [View Repositories](https://github.com/CollinH9){target="_blank"}
