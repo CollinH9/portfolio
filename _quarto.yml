@@ -17,6 +17,8 @@ website:
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/collin-henkel-55aa2533a/
+      - icon: github
+        href: https://github.com/CollinH9
 
 format:
   html:
