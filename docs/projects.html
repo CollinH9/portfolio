@@ -137,61 +137,59 @@ ul.task-list li input[type="checkbox"] {
 <h1>Projects</h1>
 <section id="health-risk-modeling-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="health-risk-modeling-analysis">Health Risk Modeling Analysis</h2>
-<p>Built regression models to quantify relationships between socioeconomic factors, access, and health outcomes at the census tract level.</p>
+<p>Investigated whether physical food access or socioeconomic factors better explain chronic health outcomes across Lancaster County, Nebraska. Found that educational attainment was a substantially stronger predictor of obesity than proximity to grocery stores — a result that held across both linear and nonlinear models.</p>
 <p><strong>Tools:</strong> Python, pandas, scikit-learn, geopandas<br>
-<strong>Data:</strong> ACS, CDC PLACES, OpenStreetMap</p>
-<p><a href="files/Math_in_the_City___Group_4__Spring_2026.pdf" target="_blank">View Report (PDF)</a><br>
-<em>In Progress</em></p>
+<strong>Data:</strong> ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap</p>
+<p><a href="files/Math_in_the_City___Group_4__Spring_2026.pdf" target="_blank">View Report (PDF)</a></p>
 <details>
 <summary>
 See technical details
 </summary>
 <ul>
-<li>Built regression models and evaluated performance using R² and RMSE<br>
-</li>
-<li>Engineered features including distance to grocery stores and density metrics<br>
-</li>
-<li>Visualized spatial trends across geographic regions</li>
+<li>Engineered distance-based and density features from OpenStreetMap using OSMnx (distance to nearest grocery store, fast food density per km²)</li>
+<li>Built multiple linear regression model achieving R² ≈ 0.49; compared against random forest (R² ≈ 0.59)</li>
+<li>Feature importance analysis confirmed percent without a high school diploma (importance: 0.721) as the dominant predictor over physical food access (0.143)</li>
+<li>Performed 5-fold cross-validation to evaluate model stability across tract subsets</li>
+<li>Visualized spatial clustering of obesity, poverty, and transit access across census tracts using geopandas</li>
 </ul>
 </details>
 <hr>
 </section>
 <section id="business-data-analysis-report" class="level2">
 <h2 class="anchored" data-anchor-id="business-data-analysis-report">Business Data Analysis Report</h2>
-<p>Developed a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.</p>
+<p>Analyzed a real-world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations. <!-- Consider adding: what company/industry/dataset this was, even briefly --></p>
 <p><strong>Tools:</strong> R, Quarto</p>
 <p><a href="https://unl-statistics.github.io/business-report-CollinH9/" target="_blank">View Project Site</a></p>
+<details>
+<summary>
+See technical details
+</summary>
+<ul>
+<li>Cleaned and processed raw business data for analysis in R</li>
+<li>Built visualizations to surface trends and support recommendations</li>
+<li>Produced a reproducible report using Quarto combining code, output, and narrative</li>
+</ul>
+</details>
 <hr>
 </section>
 <section id="deep-learning-projects" class="level2">
 <h2 class="anchored" data-anchor-id="deep-learning-projects">Deep Learning Projects</h2>
-<p>Implemented and evaluated neural network models across text and image tasks, including sentiment analysis and image classification.</p>
-<p><strong>Tools:</strong> TensorFlow, Keras</p>
-<section id="projects-include" class="level3">
-<h3 class="anchored" data-anchor-id="projects-include">Projects include:</h3>
-<ul>
-<li><strong>Sentiment Analysis</strong> — sequential models for text classification<br>
-</li>
-<li><strong>SVHN Classification</strong> — convolutional neural networks for digit recognition<br>
-</li>
-<li><strong>Fashion MNIST</strong> — fully connected architectures with performance comparison</li>
-</ul>
+<p>Built and evaluated neural network models for text and image classification tasks, comparing architectures and tuning for performance.</p>
+<p><strong>Tools:</strong> Python, TensorFlow, Keras, scikit-learn</p>
 <p><a href="files/CSCE479879Homework3.pdf" target="_blank">View Example Report (PDF)</a></p>
 <details>
 <summary>
 See technical details
 </summary>
 <ul>
-<li>Built and trained neural network models across multiple datasets<br>
-</li>
-<li>Preprocessed text and image data for supervised learning tasks<br>
-</li>
-<li>Tuned architectures and hyperparameters to improve model performance</li>
+<li><strong>Sentiment Analysis</strong> — sequential model for text classification; preprocessed and tokenized input data</li>
+<li><strong>SVHN Classification</strong> — convolutional neural network for street-view digit recognition</li>
+<li><strong>Fashion MNIST</strong> — fully connected architecture; benchmarked against alternative configurations</li>
+<li>Tuned hyperparameters and evaluated models using accuracy and loss metrics across all three tasks</li>
 </ul>
 </details>
 
 
-</section>
 </section>
 </section>
 

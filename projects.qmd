@@ -2,20 +2,21 @@
 
 ## Health Risk Modeling Analysis
 
-Built regression models to quantify relationships between socioeconomic factors, access, and health outcomes at the census tract level.
+Investigated whether physical food access or socioeconomic factors better explain chronic health outcomes across Lancaster County, Nebraska. Found that educational attainment was a substantially stronger predictor of obesity than proximity to grocery stores — a result that held across both linear and nonlinear models.
 
 **Tools:** Python, pandas, scikit-learn, geopandas  
-**Data:** ACS, CDC PLACES, OpenStreetMap  
+**Data:** ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap  
 
-[View Report (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}  
-*In Progress*
+[View Report (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
 
 <details>
 <summary>See technical details</summary>
 
-- Built regression models and evaluated performance using R² and RMSE  
-- Engineered features including distance to grocery stores and density metrics  
-- Visualized spatial trends across geographic regions  
+- Engineered distance-based and density features from OpenStreetMap using OSMnx (distance to nearest grocery store, fast food density per km²)
+- Built multiple linear regression model achieving R² ≈ 0.49; compared against random forest (R² ≈ 0.59)
+- Feature importance analysis confirmed percent without a high school diploma (importance: 0.721) as the dominant predictor over physical food access (0.143)
+- Performed 5-fold cross-validation to evaluate model stability across tract subsets
+- Visualized spatial clustering of obesity, poverty, and transit access across census tracts using geopandas
 
 </details>
 
@@ -23,33 +24,37 @@ Built regression models to quantify relationships between socioeconomic factors,
 
 ## Business Data Analysis Report
 
-Developed a structured business analysis combining data processing, visualization, and written insights to generate actionable recommendations.
+Analyzed a real-world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations. <!-- Consider adding: what company/industry/dataset this was, even briefly -->
 
 **Tools:** R, Quarto  
 
-[View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}  
+[View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
+
+<details>
+<summary>See technical details</summary>
+
+- Cleaned and processed raw business data for analysis in R
+- Built visualizations to surface trends and support recommendations
+- Produced a reproducible report using Quarto combining code, output, and narrative
+
+</details>
 
 ---
 
 ## Deep Learning Projects
 
-Implemented and evaluated neural network models across text and image tasks, including sentiment analysis and image classification.
+Built and evaluated neural network models for text and image classification tasks, comparing architectures and tuning for performance.
 
-**Tools:** TensorFlow, Keras  
-
-### Projects include:
-
-- **Sentiment Analysis** — sequential models for text classification  
-- **SVHN Classification** — convolutional neural networks for digit recognition  
-- **Fashion MNIST** — fully connected architectures with performance comparison  
+**Tools:** Python, TensorFlow, Keras, scikit-learn  
 
 [View Example Report (PDF)](files/CSCE479879Homework3.pdf){target="_blank"}
 
 <details>
 <summary>See technical details</summary>
 
-- Built and trained neural network models across multiple datasets  
-- Preprocessed text and image data for supervised learning tasks  
-- Tuned architectures and hyperparameters to improve model performance  
+- **Sentiment Analysis** — sequential model for text classification; preprocessed and tokenized input data
+- **SVHN Classification** — convolutional neural network for street-view digit recognition
+- **Fashion MNIST** — fully connected architecture; benchmarked against alternative configurations
+- Tuned hyperparameters and evaluated models using accuracy and loss metrics across all three tasks
 
 </details>
