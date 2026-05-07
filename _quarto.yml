@@ -20,7 +20,7 @@ website:
 
 format:
   html:
-    theme: zephyr
+    theme: flatly
     css: styles.css
 
 editor: visual
