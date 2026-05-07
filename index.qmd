@@ -10,9 +10,9 @@ I'm drawn to work where careful methodology and practical impact go together.
 
 ## Projects
 
--   [Health Risk Modeling Analysis](projects.qmd#health-risk-modeling-analysis) — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
+-   [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"} — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
 -   [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} — structured analysis combining data processing, visualization, and recommendations in R
--   [Deep Learning Projects](projects.qmd#deep-learning-projects) — sentiment analysis and image classification using TensorFlow and scikit-learn
+-   [Deep Learning Projects](files/CSCE479879Homework3.pdf){target="_blank"} — sentiment analysis and image classification using TensorFlow and scikit-learn
 
 [View all projects →](projects.qmd)
 
