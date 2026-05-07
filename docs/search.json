@@ -7,13 +7,6 @@
     "text": "Resume\n\n\nDownload PDF"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Collin Henkel",
@@ -131,13 +124,6 @@
     "title": "Health Outcomes and Social Determinants in Lancaster County, Nebraska",
     "section": "Findings and Takeaways",
     "text": "Findings and Takeaways\nThis analysis extended the original Lancaster County health study by adding SNAP participation rates and age distribution variables from the ACS. The results meaningfully shift the story from the class project.\nSNAP participation emerged as the strongest single predictor of obesity (r = 0.81), surpassing even educational attainment (r = 0.75). The random forest confirmed this; snap_rate carried an importance weight of 0.547, nearly double percent_no_hs at 0.277. The decision tree’s root split on SNAP rate makes the same point in interpretable terms: SNAP participation alone cleanly separates low and high-obesity tracts.\nAge distribution added modest but meaningful signal. Tracts with higher shares of residents 65+ show lower obesity (r = -0.46) but higher coronary heart disease (r = 0.74), a pattern that makes biological sense and suggests the three health outcomes have partially distinct drivers. Percent under 18 contributed more through interaction effects than raw correlation, showing up third in random forest importance despite a weak bivariate r of 0.16.\nFood access geography remained the weakest predictor across all methods. Distance to grocery stores (r = -0.17, importance = 0.024) continues to underperform every socioeconomic variable tested.\nThe policy implication is sharper here than in the original analysis. Education level is hard to change on short timescales. SNAP participation is a program, and one that can be expanded, made more accessible, and targeted at specific tracts. The concentration of high SNAP rates and high obesity in the same urban core neighborhoods visible in the spatial maps suggests that outreach and enrollment support in those areas could be a more direct lever than food infrastructure alone.\nFuture work could add SNAP enrollment barriers (application complexity, language access), school meal participation rates, and individual-level data to test whether these tract-level patterns hold at finer resolution."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "projects.html",
