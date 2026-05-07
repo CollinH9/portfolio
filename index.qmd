@@ -2,16 +2,17 @@
 
 ### Data Science • Mathematics • Machine Learning
 
-I am a Data Science and Mathematics student at the University of Nebraska–Lincoln with experience in data analysis, SQL, and machine learning. My work focuses on building data-driven insights from structured datasets and developing reproducible analysis workflows.
+I recently graduated from the University of Nebraska–Lincoln with a B.S. in Data Science and Mathematics. My background spans data validation and analysis, statistical modeling, and machine learning with experience applying these methods to real-world problems in insurance, public health, and business contexts.
 
-This portfolio highlights selected projects involving statistical modeling, data validation, and applied machine learning.
+I'm drawn to work where careful methodology and practical impact go together.
 
 ------------------------------------------------------------------------
 
 ## Projects
 
--   [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
--   [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
+-   [Health Risk Modeling Analysis](projects.qmd#health-risk-modeling-analysis) — modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
+-   [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} — structured analysis combining data processing, visualization, and recommendations in R
+-   [Deep Learning Projects](projects.qmd#deep-learning-projects) — sentiment analysis and image classification using TensorFlow and scikit-learn
 
 [View all projects →](projects.qmd)
 
@@ -20,9 +21,9 @@ This portfolio highlights selected projects involving statistical modeling, data
 ## Skills
 
 - **Languages:** Python, SQL, R  
-- **Libraries:** pandas, NumPy, scikit-learn  
+- **Libraries:** pandas, NumPy, scikit-learn, geopandas, TensorFlow  
 - **Tools:** Tableau, Excel, Jupyter, Git  
-- **Methods:** Regression, Classification, Statistical Inference
+- **Methods:** Regression, Classification, Statistical Inference, Feature Engineering
 
 ------------------------------------------------------------------------
 
