@@ -4,8 +4,8 @@
 
 Investigated whether physical food access or socioeconomic factors better explain chronic health outcomes across Lancaster County, Nebraska. Found that educational attainment was a substantially stronger predictor of obesity than proximity to grocery stores. That result held across both linear and nonlinear models.
 
-**Tools.** Python, pandas, scikit-learn, geopandas\
-**Data.** ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap
+**Tools:** Python, pandas, scikit-learn, geopandas\
+**Data:** ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap
 
 [View Report (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
 
@@ -29,8 +29,8 @@ After completing the class project, I wanted to test whether adding more policy 
 
 **Key finding.** SNAP participation rate (r = 0.81) emerged as the strongest single predictor of obesity, stronger than education, poverty rate, or any food access measure. SNAP is a program that can be targeted and expanded, making it a more actionable consideration than structural factors like education level.
 
-**Tools.** Python, pandas, scikit-learn, geopandas, statsmodels\
-**Data.** ACS 5-year 2023, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020
+**Tools:** Python, pandas, scikit-learn, geopandas, statsmodels\
+**Data:** ACS 5-year 2023, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020
 
 [View Notebook](files/analysis.html){target="_blank"}
 
@@ -53,7 +53,7 @@ After completing the class project, I wanted to test whether adding more policy 
 
 Analyzed a real world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations.
 
-**Tools.** R, Quarto
+**Tools:** R, Quarto
 
 [View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
 
@@ -73,7 +73,7 @@ Analyzed a real world business dataset to produce a structured report combining 
 
 Built and evaluated neural network models for text and image classification tasks, comparing architectures and tuning for performance.
 
-**Tools.** Python, TensorFlow, Keras, scikit-learn
+**Tools:** Python, TensorFlow, Keras, scikit-learn
 
 [View Example Report (PDF)](files/CSCE479879Homework3.pdf){target="_blank"}
 
@@ -81,9 +81,9 @@ Built and evaluated neural network models for text and image classification task
 
 <summary>See technical details</summary>
 
-- **Sentiment Analysis.** Built a sequential model for text classification, preprocessing and tokenizing input data.
-- **SVHN Classification.** Built a convolutional neural network for street view digit recognition.
-- **Fashion MNIST.** Used a fully connected architecture and benchmarked against alternative configurations.
+- **Sentiment Analysis:** Built a sequential model for text classification, preprocessing and tokenizing input data.
+- **SVHN Classification:** Built a convolutional neural network for street view digit recognition.
+- **Fashion MNIST:** Used a fully connected architecture and benchmarked against alternative configurations.
 - Tuned hyperparameters and evaluated models using accuracy and loss metrics across all three tasks.
 
 </details>
