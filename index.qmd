@@ -26,6 +26,8 @@ I am drawn to work where careful methodology and practical impact go together.
 - **Tools:** Tableau, Excel, Jupyter, Git\
 - **Methods:** Regression, Classification, Statistical Inference, Feature Engineering
 
+------------------------------------------------------------------------
+
 ## Contact
 
 - Email: [collinh929\@gmail.com](mailto:collinh929@gmail.com)
