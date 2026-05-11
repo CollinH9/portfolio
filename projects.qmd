@@ -23,7 +23,7 @@ Investigated whether physical food access or socioeconomic factors better explai
 
 ------------------------------------------------------------------------
 
-## Health Risk Modeling, Extended Analysis
+## Health Risk Modeling Extended Analysis
 
 After completing the class project, I wanted to test whether adding more policy relevant variables would change the findings. The original analysis identified educational attainment as the strongest predictor of obesity. Adding SNAP participation rates and age distribution data from the ACS shifted that picture considerably.
 
