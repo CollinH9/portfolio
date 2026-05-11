@@ -2,10 +2,10 @@
 
 ## Health Risk Modeling Analysis
 
-Investigated whether physical food access or socioeconomic factors better explain chronic health outcomes across Lancaster County, Nebraska. Found that educational attainment was a substantially stronger predictor of obesity than proximity to grocery stores — a result that held across both linear and nonlinear models.
+Investigated whether physical food access or socioeconomic factors better explain chronic health outcomes across Lancaster County, Nebraska. Found that educational attainment was a substantially stronger predictor of obesity than proximity to grocery stores. That result held across both linear and nonlinear models.
 
-**Tools:** Python, pandas, scikit-learn, geopandas\
-**Data:** ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap
+**Tools.** Python, pandas, scikit-learn, geopandas\
+**Data.** ACS (U.S. Census Bureau), CDC PLACES, OpenStreetMap
 
 [View Report (PDF)](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"}
 
@@ -13,37 +13,37 @@ Investigated whether physical food access or socioeconomic factors better explai
 
 <summary>See technical details</summary>
 
--   Engineered distance-based and density features from OpenStreetMap using OSMnx (distance to nearest grocery store, fast food density per km²)
--   Built multiple linear regression model achieving R² ≈ 0.49; compared against random forest (R² ≈ 0.59)
--   Feature importance analysis confirmed percent without a high school diploma (importance: 0.721) as the dominant predictor over physical food access (0.143)
--   Performed 5-fold cross-validation to evaluate model stability across tract subsets
--   Visualized spatial clustering of obesity, poverty, and transit access across census tracts using geopandas
+- Engineered distance based and density features from OpenStreetMap using OSMnx (distance to nearest grocery store, fast food density per km²)
+- Built a multiple linear regression model achieving R² ≈ 0.49. Compared against random forest (R² ≈ 0.59).
+- Feature importance analysis confirmed percent without a high school diploma (importance 0.721) as the dominant predictor over physical food access (0.143)
+- Performed 5 fold cross validation to evaluate model stability across tract subsets
+- Visualized spatial clustering of obesity, poverty, and transit access across census tracts using geopandas
 
 </details>
 
 ------------------------------------------------------------------------
 
-## Health Risk Modeling — Extended Analysis
+## Health Risk Modeling, Extended Analysis
 
-After completing the class project, I wanted to test whether adding more policy-relevant variables would change the findings. The original analysis identified educational attainment as the strongest predictor of obesity. Adding SNAP participation rates and age distribution data from the ACS shifted that picture considerably.
+After completing the class project, I wanted to test whether adding more policy relevant variables would change the findings. The original analysis identified educational attainment as the strongest predictor of obesity. Adding SNAP participation rates and age distribution data from the ACS shifted that picture considerably.
 
-**Key finding:** SNAP participation rate (r = 0.81) emerged as the strongest single predictor of obesity, stronger than education, poverty rate, or any food access measure. This matters because SNAP is a program that can be targeted and expanded, making it a more actionable consideration than structural factors like education level.
+**Key finding.** SNAP participation rate (r = 0.81) emerged as the strongest single predictor of obesity, stronger than education, poverty rate, or any food access measure. SNAP is a program that can be targeted and expanded, making it a more actionable consideration than structural factors like education level.
 
-**Tools:** Python, pandas, scikit-learn, geopandas, statsmodels\
-**Data:** ACS 5-year 2023, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020
+**Tools.** Python, pandas, scikit-learn, geopandas, statsmodels\
+**Data.** ACS 5-year 2023, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020
 
-[View Notebook](files/analysis.ipynb){target="_blank"}
+[View Notebook](files/analysis.html){target="_blank"}
 
 <details>
 
 <summary>See technical details</summary>
 
--   Added SNAP participation rate, percent population under 18, and percent 65+ from ACS to the original feature set
--   Random forest feature importance: snap_rate (0.547), percent_no_hs (0.277), pct_under_18 (0.062); food access variables combined \< 0.05
--   Linear regression R² = 0.574, Random Forest R² = 0.668 on held-out test set; repeated K-fold CV mean R² = 0.602 (RF) vs 0.389 (LR)
--   Spatial mapping revealed SNAP concentration and obesity hotspots overlap almost perfectly in Lancaster County's urban core
--   Decision tree (max depth 4) confirmed SNAP rate as the primary splitting variable
--   Age split is notable: pct_65_plus negatively correlates with obesity (r = -0.46) but positively with coronary heart disease (r = 0.74), suggesting distinct drivers across outcomes
+- Added SNAP participation rate, percent population under 18, and percent 65+ from ACS to the original feature set
+- Random forest feature importance showed snap_rate (0.547), percent_no_hs (0.277), and pct_under_18 (0.062). Food access variables combined below 0.05.
+- Linear regression R² = 0.574. Random Forest R² = 0.668 on the held out test set. Repeated K fold CV mean R² = 0.602 (RF) vs 0.389 (LR).
+- Spatial mapping revealed SNAP concentration and obesity hotspots overlap almost perfectly in Lancaster County's urban core
+- Decision tree (max depth 4) confirmed SNAP rate as the primary splitting variable
+- The age split is notable. pct_65_plus negatively correlates with obesity (r = -0.46) but positively with coronary heart disease (r = 0.74), suggesting distinct drivers across outcomes.
 
 </details>
 
@@ -51,9 +51,9 @@ After completing the class project, I wanted to test whether adding more policy-
 
 ## Business Data Analysis Report
 
-Analyzed a real-world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations. <!-- Consider adding: what company/industry/dataset this was, even briefly -->
+Analyzed a real world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations.
 
-**Tools:** R, Quarto
+**Tools.** R, Quarto
 
 [View Project Site](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"}
 
@@ -61,9 +61,9 @@ Analyzed a real-world business dataset to produce a structured report combining 
 
 <summary>See technical details</summary>
 
--   Cleaned and processed raw business data for analysis in R
--   Built visualizations to surface trends and support recommendations
--   Produced a reproducible report using Quarto combining code, output, and narrative
+- Cleaned and processed raw business data for analysis in R
+- Built visualizations to surface trends and support recommendations
+- Produced a reproducible report using Quarto combining code, output, and narrative
 
 </details>
 
@@ -73,7 +73,7 @@ Analyzed a real-world business dataset to produce a structured report combining 
 
 Built and evaluated neural network models for text and image classification tasks, comparing architectures and tuning for performance.
 
-**Tools:** Python, TensorFlow, Keras, scikit-learn
+**Tools.** Python, TensorFlow, Keras, scikit-learn
 
 [View Example Report (PDF)](files/CSCE479879Homework3.pdf){target="_blank"}
 
@@ -81,9 +81,9 @@ Built and evaluated neural network models for text and image classification task
 
 <summary>See technical details</summary>
 
--   **Sentiment Analysis** — sequential model for text classification; preprocessed and tokenized input data
--   **SVHN Classification** — convolutional neural network for street-view digit recognition
--   **Fashion MNIST** — fully connected architecture; benchmarked against alternative configurations
--   Tuned hyperparameters and evaluated models using accuracy and loss metrics across all three tasks
+- **Sentiment Analysis.** Built a sequential model for text classification, preprocessing and tokenizing input data.
+- **SVHN Classification.** Built a convolutional neural network for street view digit recognition.
+- **Fashion MNIST.** Used a fully connected architecture and benchmarked against alternative configurations.
+- Tuned hyperparameters and evaluated models using accuracy and loss metrics across all three tasks.
 
 </details>
