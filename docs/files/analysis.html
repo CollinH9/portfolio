@@ -193,14 +193,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This analysis extends a class project from Math in the City (Spring 2026), which found that educational attainment was a stronger predictor of obesity in Lancaster County than physical proximity to grocery stores. That project used a limited feature set. Here I add SNAP participation rates and age distribution variables from the ACS to test whether food insecurity changes the picture. It does.</p>
-<p><strong>Data sources:</strong></p>
+<p><strong>Data sources</strong></p>
 <ul>
-<li>CDC PLACES 2025 — crude prevalence rates by census tract</li>
-<li>ACS 5-year 2023 — socioeconomic and demographic variables</li>
-<li>OpenStreetMap (via osmnx) — food access infrastructure</li>
-<li>TIGER/Line 2020 — census tract shapefiles</li>
+<li>CDC PLACES 2025 (crude prevalence rates by census tract)</li>
+<li>ACS 5-year 2023 (socioeconomic and demographic variables)</li>
+<li>OpenStreetMap via osmnx (food access infrastructure)</li>
+<li>TIGER/Line 2020 (census tract shapefiles) To reproduce the dataset, run <code>python build_dataset.py</code>. This requires a <code>CENSUS_API_KEY</code> environment variable and the base CSV in <code>data/</code>.</li>
 </ul>
-<p><strong>To reproduce the dataset:</strong> run <code>python build_dataset.py</code> (requires <code>CENSUS_API_KEY</code> env var and the base CSV in <code>data/</code>).</p>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div id="c3d4e5f6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T05:59:49.916385Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T05:59:49.916385Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T05:59:55.510903Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T05:59:55.510903Z&quot;}}" data-execution_count="1">
@@ -619,8 +618,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="key-relationships-scatter-plots" class="level2">
-<h2 class="anchored" data-anchor-id="key-relationships-scatter-plots">Key Relationships: Scatter Plots</h2>
+<section id="key-relationships" class="level2">
+<h2 class="anchored" data-anchor-id="key-relationships">Key Relationships</h2>
 <p>Bivariate plots for the strongest correlates of obesity prevalence.</p>
 <div id="f2a3b4c5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T05:59:57.303166Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T05:59:57.302011Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T05:59:59.612893Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T05:59:59.610864Z&quot;}}" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>predictors <span class="op">=</span> [</span>
@@ -661,7 +660,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="education-and-obesity" class="level2">
 <h2 class="anchored" data-anchor-id="education-and-obesity">Education and Obesity</h2>
-<p>Percent of adults without a high school diploma is the strongest single predictor. The OLS model here includes a 95% confidence band.</p>
+<p>Percent of adults without a high school diploma is the strongest single predictor. The OLS model includes a 95% confidence band.</p>
 <div id="b4c5d6e7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T05:59:59.616810Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T05:59:59.615771Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T06:00:00.521742Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T06:00:00.521742Z&quot;}}" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">"percent_no_hs"</span>].dropna()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df.loc[x.index, <span class="st">"OBESITY_CrudePrev"</span>]</span>
@@ -726,7 +725,7 @@ Notes:
 </section>
 <section id="snap-participation-and-age-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="snap-participation-and-age-distribution">SNAP Participation and Age Distribution</h2>
-<p>SNAP participation is a proxy for food insecurity that is more directly policy-relevant than poverty rate alone. Age brackets capture whether tract demographics skew toward dependent populations.</p>
+<p>SNAP participation is a proxy for food insecurity that is more directly policy relevant than poverty rate alone. Age brackets capture whether tract demographics skew toward dependent populations.</p>
 <div id="d6e7f8a9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T06:00:00.521742Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T06:00:00.521742Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T06:00:01.661446Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T06:00:01.661446Z&quot;}}" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>new_vars <span class="op">=</span> [</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"snap_rate"</span>,     <span class="st">"SNAP Participation Rate (%)"</span>),</span>
@@ -763,7 +762,7 @@ Notes:
 </section>
 <section id="predictive-modeling" class="level2">
 <h2 class="anchored" data-anchor-id="predictive-modeling">Predictive Modeling</h2>
-<p>We compare a linear regression baseline against a Random Forest regressor. Features are standardized before modeling. The dataset has 78 tracts, so cross-validation variance is high — treat R² values as directional, not precise.</p>
+<p>We compare a linear regression baseline against a Random Forest regressor. Features are standardized before modeling. The dataset has 78 tracts. Cross validation variance is high, so treat R² values as directional rather than precise.</p>
 <div id="f8a9b0c1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T06:00:01.661446Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T06:00:01.661446Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T06:00:01.685487Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T06:00:01.685487Z&quot;}}" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>TARGET <span class="op">=</span> <span class="st">"OBESITY_CrudePrev"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -825,7 +824,7 @@ dist_to_grocery_km     0.045725
     percent_no_car    -0.001850</code></pre>
 </div>
 </div>
-<p><strong>A note on multicollinearity:</strong> Several predictors in this model are moderately correlated with each other. Most notably snap_rate and percent_no_hs (r = 0.73), and snap_rate and poverty_rate (r = 0.52). In a linear regression, this inflates coefficient variance and makes individual coefficient estimates unreliable. The LR results here should be interpreted as directional rather than precise, and the model confirms that socioeconomic variables collectively explain meaningful variance, but the specific coefficient magnitudes are not trustworthy guides to individual predictor importance. The random forest feature importance scores, which are less sensitive to correlated features, provide a more reliable ranking.</p>
+<p><strong>A note on multicollinearity.</strong> Several predictors in this model correlate with each other. The most notable pairs are snap_rate and percent_no_hs (r = 0.73), and snap_rate and poverty_rate (r = 0.52). In a linear regression, correlated predictors inflate coefficient variance and make individual estimates unreliable. Read the LR results as directional rather than precise. The model confirms that socioeconomic variables collectively explain meaningful variance, but individual coefficient magnitudes are not reliable guides to predictor importance. The random forest importance scores are less sensitive to correlated features and give a more reliable ranking.</p>
 <div id="b0c1d2e3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-07T06:00:01.721197Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-07T06:00:01.721197Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-07T06:00:02.561974Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-07T06:00:02.560512Z&quot;}}">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">200</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -1037,12 +1036,12 @@ High variance is expected with n=78 tracts.</code></pre>
 </section>
 <section id="findings-and-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="findings-and-takeaways">Findings and Takeaways</h2>
-<p>This analysis extended the original Lancaster County health study by adding SNAP participation rates and age distribution variables from the ACS. The results meaningfully shift the story from the class project.</p>
-<p><strong>SNAP participation emerged as the strongest single predictor of obesity</strong> (r = 0.81), surpassing even educational attainment (r = 0.75). The random forest confirmed this; snap_rate carried an importance weight of 0.547, nearly double percent_no_hs at 0.277. The decision tree’s root split on SNAP rate makes the same point in interpretable terms: SNAP participation alone cleanly separates low and high-obesity tracts.</p>
-<p>Age distribution added modest but meaningful signal. Tracts with higher shares of residents 65+ show <em>lower</em> obesity (r = -0.46) but <em>higher</em> coronary heart disease (r = 0.74), a pattern that makes biological sense and suggests the three health outcomes have partially distinct drivers. Percent under 18 contributed more through interaction effects than raw correlation, showing up third in random forest importance despite a weak bivariate r of 0.16.</p>
-<p>Food access geography remained the weakest predictor across all methods. Distance to grocery stores (r = -0.17, importance = 0.024) continues to underperform every socioeconomic variable tested.</p>
-<p><strong>The policy implication is sharper here than in the original analysis.</strong> Education level is hard to change on short timescales. SNAP participation is a program, and one that can be expanded, made more accessible, and targeted at specific tracts. The concentration of high SNAP rates and high obesity in the same urban core neighborhoods visible in the spatial maps suggests that outreach and enrollment support in those areas could be a more direct lever than food infrastructure alone.</p>
-<p>Future work could add SNAP enrollment barriers (application complexity, language access), school meal participation rates, and individual-level data to test whether these tract-level patterns hold at finer resolution.</p>
+<p>This analysis extended the original Lancaster County health study by adding SNAP participation rates and age distribution variables from the ACS. The results shift the story from the class project.</p>
+<p>SNAP participation emerged as the strongest single predictor of obesity (r = 0.81), surpassing educational attainment (r = 0.75). The random forest confirmed this. snap_rate carried an importance weight of 0.547, nearly double percent_no_hs at 0.277. The decision tree’s root split on SNAP rate makes the same point in plain terms: SNAP participation alone cleanly separates low and high obesity tracts.</p>
+<p>Age distribution added modest but meaningful signal. Tracts with higher shares of residents 65 and older show lower obesity (r = -0.46) but higher coronary heart disease (r = 0.74). That pattern makes biological sense and suggests the three health outcomes have partially distinct drivers. Percent under 18 contributed more through interaction effects than raw correlation, showing up third in random forest importance despite a weak bivariate r of 0.16.</p>
+<p>Food access geography stayed the weakest predictor across all methods. Distance to grocery stores (r = -0.17, importance = 0.024) underperformed every socioeconomic variable tested.</p>
+<p>The policy implication is sharper here than in the original analysis. Education level is hard to change on short timescales. SNAP participation is a program that can be expanded, made more accessible, and targeted at specific tracts. The concentration of high SNAP rates and high obesity in the same urban core neighborhoods shown in the spatial maps suggests that outreach and enrollment support in those areas would be a more direct lever than food infrastructure changes.</p>
+<p>Future work could add SNAP enrollment barriers such as application complexity and language access, school meal participation rates, and individual level data to test whether these tract level patterns hold at finer resolution.</p>
 
 
 </section>
