@@ -161,11 +161,11 @@ See technical details
 <hr>
 </section>
 <section id="health-risk-modeling-extended-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="health-risk-modeling-extended-analysis">Health Risk Modeling Extended Analysis</h2>
+<h2 class="anchored" data-anchor-id="health-risk-modeling-extended-analysis">Health Risk Modeling, Extended Analysis</h2>
 <p>After completing the class project, I wanted to test whether adding more policy relevant variables would change the findings. The original analysis identified educational attainment as the strongest predictor of obesity. Adding SNAP participation rates and age distribution data from the ACS shifted that picture considerably.</p>
-<p><strong>Key finding.</strong> SNAP participation rate (r = 0.81) emerged as the strongest single predictor of obesity, stronger than education, poverty rate, or any food access measure. SNAP is a program that can be targeted and expanded, making it a more actionable consideration than structural factors like education level.</p>
-<p><strong>Tools:</strong> Python, pandas, scikit-learn, geopandas, statsmodels<br>
-<strong>Data:</strong> ACS 5-year 2023, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020</p>
+<p><strong>Key finding.</strong> SNAP participation (r = 0.76) and educational attainment (r = 0.75) emerged as essentially tied bivariate predictors of obesity. The random forest breaks the tie: education leads with an importance weight of 0.527, more than double SNAP at 0.241. The high collinearity between the two (r = 0.71) explains this. Both variables point to the same urban core tracts as the highest risk areas.</p>
+<p><strong>Tools.</strong> Python, pandas, scikit-learn, geopandas, statsmodels<br>
+<strong>Data.</strong> ACS 5-year 2024, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020</p>
 <p><a href="files/analysis.html" target="_blank">View Notebook</a></p>
 <details>
 <summary>
@@ -173,11 +173,11 @@ See technical details
 </summary>
 <ul>
 <li>Added SNAP participation rate, percent population under 18, and percent 65+ from ACS to the original feature set</li>
-<li>Random forest feature importance showed snap_rate (0.547), percent_no_hs (0.277), and pct_under_18 (0.062). Food access variables combined below 0.05.</li>
-<li>Linear regression R² = 0.574. Random Forest R² = 0.668 on the held out test set. Repeated K fold CV mean R² = 0.602 (RF) vs 0.389 (LR).</li>
-<li>Spatial mapping revealed SNAP concentration and obesity hotspots overlap almost perfectly in Lancaster County’s urban core</li>
-<li>Decision tree (max depth 4) confirmed SNAP rate as the primary splitting variable</li>
-<li>The age split is notable. pct_65_plus negatively correlates with obesity (r = -0.46) but positively with coronary heart disease (r = 0.74), suggesting distinct drivers across outcomes.</li>
+<li>Random forest feature importance: percent_no_hs (0.527), snap_rate (0.241), pct_under_18 (0.063). Food access variables combined below 0.05.</li>
+<li>Linear regression R² = 0.517. Random Forest R² = 0.609 on the held out test set. Repeated K fold CV mean R² = 0.565 (RF) vs 0.299 (LR).</li>
+<li>Spatial mapping shows SNAP concentration and low educational attainment overlap almost perfectly in Lancaster County’s urban core</li>
+<li>Decision tree (max depth 4) confirmed educational attainment as the primary splitting variable</li>
+<li>The age split is notable. pct_65_plus negatively correlates with obesity (r = -0.45) but positively with coronary heart disease (r = 0.74), suggesting distinct drivers across outcomes.</li>
 </ul>
 </details>
 <hr>
