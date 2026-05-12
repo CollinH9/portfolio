@@ -23,7 +23,7 @@ Investigated whether physical food access or socioeconomic factors better explai
 
 ------------------------------------------------------------------------
 
-## Health Risk Modeling, Extended Analysis
+## Health Risk Modeling Extended Analysis
  
 After completing the class project, I wanted to test whether adding more policy relevant
 variables would change the findings. The original analysis identified educational
@@ -32,7 +32,7 @@ age distribution data from the ACS shifted that picture considerably.
  
 **Key finding.** SNAP participation (r = 0.76) and educational attainment (r = 0.75)
 emerged as essentially tied bivariate predictors of obesity. The random forest breaks
-the tie: education leads with an importance weight of 0.527, more than double SNAP at
+the tie. Education leads with an importance weight of 0.527, more than double SNAP at
 0.241. The high collinearity between the two (r = 0.71) explains this. Both variables
 point to the same urban core tracts as the highest risk areas.
  

@@ -161,9 +161,9 @@ See technical details
 <hr>
 </section>
 <section id="health-risk-modeling-extended-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="health-risk-modeling-extended-analysis">Health Risk Modeling, Extended Analysis</h2>
+<h2 class="anchored" data-anchor-id="health-risk-modeling-extended-analysis">Health Risk Modeling Extended Analysis</h2>
 <p>After completing the class project, I wanted to test whether adding more policy relevant variables would change the findings. The original analysis identified educational attainment as the strongest predictor of obesity. Adding SNAP participation rates and age distribution data from the ACS shifted that picture considerably.</p>
-<p><strong>Key finding.</strong> SNAP participation (r = 0.76) and educational attainment (r = 0.75) emerged as essentially tied bivariate predictors of obesity. The random forest breaks the tie: education leads with an importance weight of 0.527, more than double SNAP at 0.241. The high collinearity between the two (r = 0.71) explains this. Both variables point to the same urban core tracts as the highest risk areas.</p>
+<p><strong>Key finding.</strong> SNAP participation (r = 0.76) and educational attainment (r = 0.75) emerged as essentially tied bivariate predictors of obesity. The random forest breaks the tie. Education leads with an importance weight of 0.527, more than double SNAP at 0.241. The high collinearity between the two (r = 0.71) explains this. Both variables point to the same urban core tracts as the highest risk areas.</p>
 <p><strong>Tools.</strong> Python, pandas, scikit-learn, geopandas, statsmodels<br>
 <strong>Data.</strong> ACS 5-year 2024, CDC PLACES 2025, OpenStreetMap, TIGER/Line 2020</p>
 <p><a href="files/analysis.html" target="_blank">View Notebook</a></p>
