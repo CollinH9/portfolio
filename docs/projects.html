@@ -182,6 +182,27 @@ See technical details
 </details>
 <hr>
 </section>
+<section id="lancaster-county-sql-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="lancaster-county-sql-analysis">Lancaster County SQL Analysis</h2>
+<p>The Lancaster County health analyses produced Python notebooks and reports. This project rebuilds the same dataset as a normalized SQL database to answer the same questions from a different angle. Using DuckDB locally, the data splits into four domain tables and five analytical queries explore poverty, food access, and health outcomes at the census tract level.</p>
+<p><strong>Key finding:</strong> Near grocery tracts average the highest obesity (36.4%), higher than moderate or far access tracts. The poverty quartile analysis shows average obesity falling consistently from Q1 (37.3%) to Q4 (33.1%). Both findings point to the same conclusion. Structural poverty predicts health outcomes more reliably than physical distance to food.</p>
+<p><strong>Tools:</strong> Python, DuckDB, pandas, matplotlib <strong>Data:</strong> ACS 5-year 2024, CDC PLACES 2025</p>
+<p><a href="files/analysis-db.html" target="_blank">View Notebook</a></p>
+<details>
+<summary>
+See technical details
+</summary>
+<ul>
+<li>Designed a normalized four-table schema (tract_demographics, tract_health, tract_food_access, tract_snap) using DuckDB’s read_csv_auto</li>
+<li>Query 01: composite vulnerability score weighted across education (40%), poverty (30%), and SNAP (30%) reflecting random forest importance ordering</li>
+<li>Query 02: education outlier query filtering tracts with high educational disadvantage but unexpectedly low obesity; both outliers have geographic explanations tied to UNL proximity and commercial land use</li>
+<li>Query 03: CASE-based food access tiers comparing average obesity, poverty, and SNAP rates across near, moderate, and far grocery access groups</li>
+<li>Query 04: income vs health outcome comparison using top and bottom 10 income tracts via a RANK() OVER (ORDER BY) window function</li>
+<li>Query 05: NTILE(4) to assign poverty quartiles, RANK() OVER (PARTITION BY) to rank tracts within each quartile by obesity, and AVG() OVER (PARTITION BY) to compute quartile level averages, all in a single CTE</li>
+</ul>
+</details>
+<hr>
+</section>
 <section id="business-data-analysis-report" class="level2">
 <h2 class="anchored" data-anchor-id="business-data-analysis-report">Business Data Analysis Report</h2>
 <p>Analyzed a real world business dataset to produce a structured report combining data processing, statistical analysis, and written recommendations.</p>

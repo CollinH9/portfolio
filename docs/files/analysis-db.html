@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Vulnerability Ranking – Collin Henkel</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6b423f165eeea3787de40cb4f8e821c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Collin Henkel</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/collin-henkel-55aa2533a/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/CollinH9"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vulnerability Ranking</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="cell-1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> duckdb.<span class="ex">connect</span>()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>con.execute(<span class="bu">open</span>(<span class="st">'sql/schema.sql'</span>).read())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>&lt;_duckdb.DuckDBPyConnection at 0x2517dbca5f0&gt;</code></pre>
+</div>
+</div>
+<p>Ranks every tract by a composite score weighted across educational disadvantage (40%), poverty rate (30%), and SNAP usage (30%). Education carries the highest weight to reflect its leading position in the random forest analysis.</p>
+<div id="cell-3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_vuln <span class="op">=</span> con.execute(<span class="bu">open</span>(<span class="st">'sql/queries/01_vulnerability_ranking.sql'</span>).read()).df()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_vuln.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tract</th>
+<th data-quarto-table-cell-role="th">poverty_rate</th>
+<th data-quarto-table-cell-role="th">percent_no_hs</th>
+<th data-quarto-table-cell-role="th">snap_rate</th>
+<th data-quarto-table-cell-role="th">OBESITY_CrudePrev</th>
+<th data-quarto-table-cell-role="th">vulnerability_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>6.00</td>
+<td>63.7</td>
+<td>0.000000</td>
+<td>19.88</td>
+<td>31.9</td>
+<td>0.3144</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>18.00</td>
+<td>56.7</td>
+<td>9.222423</td>
+<td>15.95</td>
+<td>39.5</td>
+<td>0.3023</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>4.00</td>
+<td>30.9</td>
+<td>28.962331</td>
+<td>24.08</td>
+<td>41.1</td>
+<td>0.2827</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>20.02</td>
+<td>38.4</td>
+<td>19.296317</td>
+<td>14.00</td>
+<td>40.7</td>
+<td>0.2535</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>19.00</td>
+<td>55.3</td>
+<td>0.692042</td>
+<td>7.09</td>
+<td>34.0</td>
+<td>0.2445</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>8.00</td>
+<td>27.6</td>
+<td>16.712080</td>
+<td>26.98</td>
+<td>38.4</td>
+<td>0.2415</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>31.03</td>
+<td>21.8</td>
+<td>21.618037</td>
+<td>29.39</td>
+<td>42.4</td>
+<td>0.2402</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>20.01</td>
+<td>25.8</td>
+<td>13.452299</td>
+<td>23.69</td>
+<td>41.0</td>
+<td>0.2146</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>31.04</td>
+<td>14.5</td>
+<td>27.440253</td>
+<td>24.50</td>
+<td>41.1</td>
+<td>0.2138</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>21.00</td>
+<td>27.6</td>
+<td>17.034422</td>
+<td>16.02</td>
+<td>37.7</td>
+<td>0.2096</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_vuln.head(<span class="dv">10</span>).plot(x<span class="op">=</span><span class="st">'tract'</span>, y<span class="op">=</span><span class="st">'vulnerability_score'</span>, kind<span class="op">=</span><span class="st">'bar'</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 10 Most Vulnerable Tracts'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Vulnerability Score'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis-db_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Finding:</strong> Tract 6.00 ranks first in vulnerability with a poverty rate of 63.7%, one of the highest in the county. Yet its obesity rate is only 31.9% and the ACS records no residents without a high school diploma. This is not a true exception to the education-obesity relationship. Tract 6.00 sits directly on the UNL campus. The poverty here reflects student incomes and graduate stipends rather than structural economic disadvantage. Every student cleared the high school diploma bar to enroll, which explains the 0%. The low obesity reflects the age profile of a student population, not resilience against poverty.</p>
+<p>The adjacent tracts 18.00 and 19.00 show why this distinction matters. Both sit just below UNL and also have high poverty (56.7% and 55.3%), but they show obesity rates of 39.5% and 34.0%. These tracts capture the surrounding neighborhoods rather than the student population. The contrast between tract 6.00 and its neighbors illustrates a real limitation of tract level analysis. Poverty means something different depending on who is experiencing it, and the model cannot distinguish student poverty from structural poverty without additional demographic context.</p>
+<p>Tract 4.00, ranked third, sits between campus and East Campus and likely contains a mix of student and non-student residents. Its 29.0% without a high school diploma, the highest in the county, signals substantial non-student population, and its 41.1% obesity rate shows that structural disadvantage is present regardless of the student composition.</p>
+<section id="education-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="education-outliers">Education Outliers</h2>
+<p>Tracts where percent without a high school diploma exceeds 10% but obesity stays below 35%. Both outliers have geographic explanations that make them less surprising on closer inspection.</p>
+<div id="cell-7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_education <span class="op">=</span> con.execute(<span class="bu">open</span>(<span class="st">'sql/queries/02_education_outliers.sql'</span>).read()).df()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_education</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tract</th>
+<th data-quarto-table-cell-role="th">percent_no_hs</th>
+<th data-quarto-table-cell-role="th">OBESITY_CrudePrev</th>
+<th data-quarto-table-cell-role="th">snap_rate</th>
+<th data-quarto-table-cell-role="th">poverty_rate</th>
+<th data-quarto-table-cell-role="th">dist_to_grocery_km</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>7.00</td>
+<td>16.586248</td>
+<td>33.0</td>
+<td>16.26</td>
+<td>20.8</td>
+<td>0.512535</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>10.02</td>
+<td>11.075697</td>
+<td>33.3</td>
+<td>2.80</td>
+<td>9.4</td>
+<td>0.376623</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>Finding:</strong> Tract 7.00 sits directly east of the UNL campus. Its 16.6% without a high school diploma and high SNAP rate (16.3%) suggest real food insecurity, but the student-adjacent population keeps obesity at 33.0%. A younger age profile likely suppresses obesity regardless of economic stress as seen with tract 6.</p>
+<p>Tract 10.02 is primarily commercial, consisting mainly of strips and restaurants. Its small residential population (low poverty at 9.4%, low SNAP at 2.8%) likely reflects a specific demographic living in a commercial corridor rather than a typical neighborhood. Educational disadvantage here does not come with the financial barriers that usually accompany it.</p>
+<p>Both tracts reveal limitations of tract level analysis. Geographic and demographic context changes what the numbers mean, and the dominant education-obesity pattern likely holds better when populations are residentially stable in their neighborhoods.</p>
+<div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-12T17:37:25.200553Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-12T17:37:25.199815Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-12T17:37:25.474641Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-12T17:37:25.472420Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>outlier_tracts <span class="op">=</span> df_vuln[df_vuln[<span class="st">'tract'</span>].isin([<span class="fl">7.00</span>, <span class="fl">10.02</span>])]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>main_tracts <span class="op">=</span> df_vuln[<span class="op">~</span>df_vuln[<span class="st">'tract'</span>].isin([<span class="fl">7.00</span>, <span class="fl">10.02</span>])]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">5</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(main_tracts[<span class="st">'percent_no_hs'</span>], main_tracts[<span class="st">'OBESITY_CrudePrev'</span>],</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, label<span class="op">=</span><span class="st">'All tracts'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ax.scatter(outlier_tracts[<span class="st">'percent_no_hs'</span>], outlier_tracts[<span class="st">'OBESITY_CrudePrev'</span>],</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>           color<span class="op">=</span><span class="st">'red'</span>, zorder<span class="op">=</span><span class="dv">5</span>, s<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">'Education outliers (7.00, 10.02)'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> outlier_tracts.iterrows():</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f"Tract </span><span class="sc">{</span>row[<span class="st">'tract'</span>]<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                (row[<span class="st">'percent_no_hs'</span>], row[<span class="st">'OBESITY_CrudePrev'</span>]),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                textcoords<span class="op">=</span><span class="st">"offset points"</span>, xytext<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>), fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'% Without High School Diploma'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Obesity Rate (%)'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Education vs Obesity'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis-db_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="food-access-vs-health-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="food-access-vs-health-outcomes">Food Access vs Health Outcomes</h2>
+<p>Groups tracts by grocery proximity and compares average obesity, poverty, and SNAP rates across tiers.</p>
+<div id="cell-11" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_access <span class="op">=</span> con.execute(<span class="bu">open</span>(<span class="st">'sql/queries/03_composite_score.sql'</span>).read()).df()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_access</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">access_tier</th>
+<th data-quarto-table-cell-role="th">avg_obesity</th>
+<th data-quarto-table-cell-role="th">avg_poverty</th>
+<th data-quarto-table-cell-role="th">avg_snap</th>
+<th data-quarto-table-cell-role="th">tract_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Near grocery</td>
+<td>36.42</td>
+<td>20.11</td>
+<td>12.31</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Far from grocery</td>
+<td>33.96</td>
+<td>5.30</td>
+<td>3.08</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Moderate access</td>
+<td>33.71</td>
+<td>8.36</td>
+<td>5.35</td>
+<td>38</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-12" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_access.plot(x<span class="op">=</span><span class="st">'access_tier'</span>, y<span class="op">=</span>[<span class="st">'avg_obesity'</span>, <span class="st">'avg_poverty'</span>, <span class="st">'avg_snap'</span>], kind<span class="op">=</span><span class="st">'bar'</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Health &amp; Economic Outcomes by Grocery Access Tier'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Rate (%)'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis-db_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Finding:</strong> Near grocery tracts average 36.4% obesity, higher than both moderate (33.7%) and far access (34.0%) tracts. This is counterintuitive but consistent with the broader analysis. Urban low-income tracts cluster near stores because cities are dense, but physical proximity does not determine affordability or food quality. The near grocery tier has an average poverty rate of 20.1% and SNAP rate of 12.3%, more than double the other tiers. Structural poverty drives the health outcomes regardless of how close a store is.</p>
+</section>
+<section id="full-tract-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="full-tract-profiles">Full Tract Profiles</h2>
+<div id="cell-15" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_profiles <span class="op">=</span> con.execute(<span class="bu">open</span>(<span class="st">'sql/queries/04_tract_profiles.sql'</span>).read()).df()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_profiles</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tract</th>
+<th data-quarto-table-cell-role="th">poverty_rate</th>
+<th data-quarto-table-cell-role="th">percent_no_hs</th>
+<th data-quarto-table-cell-role="th">percent_uninsured</th>
+<th data-quarto-table-cell-role="th">percent_no_car</th>
+<th data-quarto-table-cell-role="th">median_income</th>
+<th data-quarto-table-cell-role="th">OBESITY_CrudePrev</th>
+<th data-quarto-table-cell-role="th">DIABETES_CrudePrev</th>
+<th data-quarto-table-cell-role="th">CHD_CrudePrev</th>
+<th data-quarto-table-cell-role="th">dist_to_grocery_km</th>
+<th data-quarto-table-cell-role="th">fast_food_density</th>
+<th data-quarto-table-cell-role="th">snap_rate</th>
+<th data-quarto-table-cell-role="th">pct_under_18</th>
+<th data-quarto-table-cell-role="th">pct_65_plus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1.00</td>
+<td>12.8</td>
+<td>13.973799</td>
+<td>6.4</td>
+<td>13.838447</td>
+<td>48425.0</td>
+<td>40.1</td>
+<td>12.8</td>
+<td>7.6</td>
+<td>0.601010</td>
+<td>0.093775</td>
+<td>11.40</td>
+<td>24.85</td>
+<td>18.42</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2.01</td>
+<td>16.4</td>
+<td>2.857143</td>
+<td>5.0</td>
+<td>10.810811</td>
+<td>55791.0</td>
+<td>35.9</td>
+<td>11.0</td>
+<td>7.0</td>
+<td>0.814400</td>
+<td>0.216570</td>
+<td>4.10</td>
+<td>18.71</td>
+<td>20.92</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2.02</td>
+<td>23.8</td>
+<td>3.939394</td>
+<td>5.7</td>
+<td>9.119696</td>
+<td>45597.0</td>
+<td>37.3</td>
+<td>9.1</td>
+<td>4.9</td>
+<td>0.701588</td>
+<td>0.000000</td>
+<td>18.62</td>
+<td>16.50</td>
+<td>10.48</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>3.00</td>
+<td>19.9</td>
+<td>11.961367</td>
+<td>13.7</td>
+<td>7.757758</td>
+<td>55339.0</td>
+<td>37.8</td>
+<td>10.2</td>
+<td>5.5</td>
+<td>0.370132</td>
+<td>0.342504</td>
+<td>16.87</td>
+<td>24.71</td>
+<td>8.61</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>4.00</td>
+<td>30.9</td>
+<td>28.962331</td>
+<td>16.1</td>
+<td>4.530281</td>
+<td>47457.0</td>
+<td>41.1</td>
+<td>11.8</td>
+<td>5.7</td>
+<td>0.726821</td>
+<td>0.230020</td>
+<td>24.08</td>
+<td>28.18</td>
+<td>8.47</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">73</th>
+<td>102.03</td>
+<td>6.7</td>
+<td>4.351204</td>
+<td>3.3</td>
+<td>6.879607</td>
+<td>142083.0</td>
+<td>31.6</td>
+<td>7.5</td>
+<td>4.4</td>
+<td>1.567109</td>
+<td>0.065606</td>
+<td>0.98</td>
+<td>27.24</td>
+<td>8.03</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">74</th>
+<td>102.04</td>
+<td>13.6</td>
+<td>6.913891</td>
+<td>4.5</td>
+<td>1.875293</td>
+<td>81212.0</td>
+<td>33.2</td>
+<td>6.8</td>
+<td>3.1</td>
+<td>2.598271</td>
+<td>0.000000</td>
+<td>2.91</td>
+<td>27.04</td>
+<td>4.55</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">75</th>
+<td>103.00</td>
+<td>4.9</td>
+<td>1.474654</td>
+<td>3.6</td>
+<td>2.663578</td>
+<td>123875.0</td>
+<td>34.3</td>
+<td>10.0</td>
+<td>5.9</td>
+<td>15.309227</td>
+<td>0.000000</td>
+<td>4.17</td>
+<td>22.14</td>
+<td>23.96</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">76</th>
+<td>104.01</td>
+<td>1.6</td>
+<td>1.742919</td>
+<td>1.4</td>
+<td>2.745098</td>
+<td>117669.0</td>
+<td>33.4</td>
+<td>7.7</td>
+<td>4.4</td>
+<td>2.308100</td>
+<td>0.004867</td>
+<td>3.59</td>
+<td>32.40</td>
+<td>13.35</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">77</th>
+<td>104.02</td>
+<td>4.5</td>
+<td>2.784291</td>
+<td>1.6</td>
+<td>0.626305</td>
+<td>114024.0</td>
+<td>33.5</td>
+<td>9.2</td>
+<td>5.4</td>
+<td>9.979971</td>
+<td>0.000000</td>
+<td>3.97</td>
+<td>32.29</td>
+<td>15.28</td>
+</tr>
+</tbody>
+</table>
+
+<p>78 rows × 14 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="income-vs-health-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="income-vs-health-outcomes">Income vs Health Outcomes</h2>
+<p>Poverty rate and median income both measure economic conditions but capture different things. Poverty is a threshold measure, counting residents below a fixed line. Median income measures the middle of the distribution. Comparing both against obesity shows whether the relationship holds regardless of which economic lens you use.</p>
+<div id="cell-17" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-12T17:37:25.835238Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-12T17:37:25.834630Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-12T17:37:26.052651Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-12T17:37:26.051001Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">5</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ax.scatter(df_profiles[<span class="st">'median_income'</span>] <span class="op">/</span> <span class="dv">1000</span>, df_profiles[<span class="st">'OBESITY_CrudePrev'</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Median Income ($k)'</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Obesity Rate (%)'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Median Income vs Obesity Rate by Tract'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis-db_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Finding:</strong> Median income shows a clear negative relationship with obesity across tracts. Higher income tracts cluster below 35% obesity while the highest obesity tracts tend to fall below $60k median income.</p>
+<p>The relationship is not perfectly linear. Several low-income tracts have moderate obesity, consistent with the student population effects discussed earlier. The pattern reinforces the poverty rate finding that economic conditions predict health outcomes more reliably than physical food access regardless of how you measure them.</p>
+</section>
+<section id="poverty-quartile-ranking" class="level2">
+<h2 class="anchored" data-anchor-id="poverty-quartile-ranking">Poverty Quartile Ranking</h2>
+<p>Assigns each tract to a poverty quartile using NTILE, then ranks tracts within each quartile by obesity using RANK OVER PARTITION, and computes the average obesity per quartile as a window aggregate.</p>
+<div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-12T17:37:26.056801Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-12T17:37:26.056223Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-12T17:37:26.104451Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-12T17:37:26.102740Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_window <span class="op">=</span> con.execute(<span class="bu">open</span>(<span class="st">'sql/queries/05_poverty_quartile_ranking.sql'</span>).read()).df()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_window.head(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tract</th>
+<th data-quarto-table-cell-role="th">poverty_rate</th>
+<th data-quarto-table-cell-role="th">poverty_quartile</th>
+<th data-quarto-table-cell-role="th">OBESITY_CrudePrev</th>
+<th data-quarto-table-cell-role="th">snap_rate</th>
+<th data-quarto-table-cell-role="th">median_income</th>
+<th data-quarto-table-cell-role="th">obesity_rank_in_quartile</th>
+<th data-quarto-table-cell-role="th">avg_obesity_in_quartile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>31.03</td>
+<td>21.8</td>
+<td>1</td>
+<td>42.4</td>
+<td>29.39</td>
+<td>67698.0</td>
+<td>1</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>32.02</td>
+<td>19.0</td>
+<td>1</td>
+<td>42.4</td>
+<td>13.71</td>
+<td>67886.0</td>
+<td>1</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>17.00</td>
+<td>23.8</td>
+<td>1</td>
+<td>41.3</td>
+<td>16.75</td>
+<td>31004.0</td>
+<td>3</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>4.00</td>
+<td>30.9</td>
+<td>1</td>
+<td>41.1</td>
+<td>24.08</td>
+<td>47457.0</td>
+<td>4</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>20.01</td>
+<td>25.8</td>
+<td>1</td>
+<td>41.0</td>
+<td>23.69</td>
+<td>31080.0</td>
+<td>5</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>20.02</td>
+<td>38.4</td>
+<td>1</td>
+<td>40.7</td>
+<td>14.00</td>
+<td>30673.0</td>
+<td>6</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>18.00</td>
+<td>56.7</td>
+<td>1</td>
+<td>39.5</td>
+<td>15.95</td>
+<td>26382.0</td>
+<td>7</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>8.00</td>
+<td>27.6</td>
+<td>1</td>
+<td>38.4</td>
+<td>26.98</td>
+<td>56775.0</td>
+<td>8</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>3.00</td>
+<td>19.9</td>
+<td>1</td>
+<td>37.8</td>
+<td>16.87</td>
+<td>55339.0</td>
+<td>9</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>21.00</td>
+<td>27.6</td>
+<td>1</td>
+<td>37.7</td>
+<td>16.02</td>
+<td>39089.0</td>
+<td>10</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>2.02</td>
+<td>23.8</td>
+<td>1</td>
+<td>37.3</td>
+<td>18.62</td>
+<td>45597.0</td>
+<td>11</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>5.00</td>
+<td>40.3</td>
+<td>1</td>
+<td>36.7</td>
+<td>6.01</td>
+<td>38152.0</td>
+<td>12</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>37.04</td>
+<td>20.7</td>
+<td>1</td>
+<td>35.2</td>
+<td>10.25</td>
+<td>53860.0</td>
+<td>13</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>30.05</td>
+<td>19.4</td>
+<td>1</td>
+<td>34.9</td>
+<td>10.47</td>
+<td>74863.0</td>
+<td>14</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>33.01</td>
+<td>18.0</td>
+<td>1</td>
+<td>34.6</td>
+<td>5.87</td>
+<td>63977.0</td>
+<td>15</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>19.00</td>
+<td>55.3</td>
+<td>1</td>
+<td>34.0</td>
+<td>7.09</td>
+<td>38099.0</td>
+<td>16</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">16</th>
+<td>27.01</td>
+<td>19.4</td>
+<td>1</td>
+<td>33.6</td>
+<td>6.51</td>
+<td>46090.0</td>
+<td>17</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">17</th>
+<td>38.01</td>
+<td>17.7</td>
+<td>1</td>
+<td>33.2</td>
+<td>3.55</td>
+<td>84537.0</td>
+<td>18</td>
+<td>37.34</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">18</th>
+<td>7.00</td>
+<td>20.8</td>
+<td>1</td>
+<td>33.0</td>
+<td>16.26</td>
+<td>50000.0</td>
+<td>19</td>
+<td>37.34</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">19</th>
+<td>6.00</td>
+<td>63.7</td>
+<td>1</td>
+<td>31.9</td>
+<td>19.88</td>
+<td>43750.0</td>
+<td>20</td>
+<td>37.34</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-12T17:37:26.108587Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-12T17:37:26.108032Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-12T17:37:26.348194Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-12T17:37:26.346339Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>quartile_avg <span class="op">=</span> (</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    df_window.drop_duplicates(<span class="st">'poverty_quartile'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'poverty_quartile'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">'poverty_quartile'</span>, <span class="st">'avg_obesity_in_quartile'</span>]]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Q1</span><span class="ch">\n</span><span class="st">(Highest poverty)'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>, <span class="st">'Q4</span><span class="ch">\n</span><span class="st">(Lowest poverty)'</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> quartile_avg[<span class="st">'avg_obesity_in_quartile'</span>].tolist()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax.bar(labels, values, color<span class="op">=</span>[<span class="st">'#c0392b'</span>, <span class="st">'#e67e22'</span>, <span class="st">'#f1c40f'</span>, <span class="st">'#27ae60'</span>], edgecolor<span class="op">=</span><span class="st">'white'</span>, width<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bar, val <span class="kw">in</span> <span class="bu">zip</span>(bars, values):</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    ax.text(bar.get_x() <span class="op">+</span> bar.get_width() <span class="op">/</span> <span class="dv">2</span>, bar.get_height() <span class="op">+</span> <span class="fl">0.3</span>, <span class="ss">f'</span><span class="sc">{</span>val<span class="sc">:.1f}</span><span class="ss">%'</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="bu">max</span>(values) <span class="op">*</span> <span class="fl">1.15</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Average Obesity Rate (%)'</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Average Obesity Rate by Poverty Quartile'</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis-db_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Finding:</strong> Average obesity declines continually from Q1 (37.3%) to Q4 (32.8%) across poverty quartiles. Tracts 31.03 and 32.02 tie for the highest obesity in Q1 at 42.4%, both combining high SNAP rates with low educational attainment. Tract 6.00 ranks last in Q1 at 31.9%, the clearest outlier, for the reasons discussed above. The decline holds even with that outlier present, which strengthens the conclusion that poverty is a structural driver of health outcomes rather than a red herring due to a few extreme tracts.</p>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<p><strong>1. Education and SNAP are the dominant predictors, essentially tied:</strong> SNAP participation (r = 0.76) and percent without a high school diploma (r = 0.75) are the two strongest bivariate predictors of obesity. The random forest breaks the tie. Education carries an importance weight of 0.527, more than double SNAP at 0.241. Both variables concentrate in the same urban core tracts.</p>
+<p><strong>2. High educational disadvantage with low obesity is rare and geographically explained:</strong> Only two tracts (7.00 and 10.02) have percent without a high school diploma above 10% and obesity below 35%. Tract 7.00 sits east of UNL where a student-adjacent population suppresses obesity despite real food insecurity. Tract 10.02 is primarily commercial with a small residential population that does not carry the financial barriers typical of educational disadvantage. Both are geographic edge cases rather than true exceptions to the pattern.</p>
+<p><strong>3. Near grocery tracts have the highest average obesity:</strong> Tracts within 1 km of a grocery store average 36.4% obesity, higher than moderate (33.7%) or far access (34.0%) tracts. Urban low-income tracts cluster near stores, but structural poverty drives food insecurity regardless of physical distance.</p>
+<p><strong>4. Poverty quartile analysis confirms a monotonic gradient:</strong> Average obesity declines consistently from Q1 (37.3%) to Q4 (32.8%). Poverty is a stronger structural driver of health outcomes than grocery distance alone.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
