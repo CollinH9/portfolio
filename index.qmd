@@ -11,7 +11,7 @@ I am drawn to work where careful methodology and practical impact go together.
 ## Projects
 
 - [Health Risk Modeling Analysis](files/Math_in_the_City___Group_4__Spring_2026.pdf){target="_blank"} - Modeled socioeconomic and geographic predictors of chronic health outcomes across Lancaster County census tracts
-- [Health Risk Modeling, Extended Analysis](files/analysis.html){target="_blank"}. Self directed follow up adding SNAP participation and age variables. Education and SNAP emerged as essentially tied predictors of obesity, with education leading the random forest model.
+- [Health Risk Modeling Extended Analysis](files/analysis.html){target="_blank"}. Self directed follow up adding SNAP participation and age variables. Education and SNAP emerged as essentially tied predictors of obesity, with education leading the random forest model.
 - [Lancaster County SQL Analysis](files/analysis-db.html){target="_blank"}. Rebuilt the same dataset as a normalized DuckDB schema with five analytical queries including window functions. Near grocery tracts average the highest obesity, showing structural poverty matters more than proximity to food.
 - [Business Data Analysis Report](https://unl-statistics.github.io/business-report-CollinH9/){target="_blank"} - Structured analysis combining data processing, visualization, and recommendations in R
 
